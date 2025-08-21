@@ -1,31 +1,64 @@
+import java.util.Scanner;
 
-public class SavingAccount {
-    public double balance;
-    public double interestRate;
-    public String name;
-    public String nama;
+public class CheckingAccount {
     public double saldo;
-    public double bunga;
-
-    public void displayCustomer() {
-        System.out.println("Customer: " + name);
-        System.out.println("Balance: " + balance);
-        System.out.println("Interest Rate: " + interestRate);
-        System.out.println("Interest Earned: " + (balance * interestRate));
-        System.out.println("-------------------------------");
-        System.out.println("Total Balance after Interest: " + (balance + (balance * interestRate)));
-        System.out.println("-------------------------------");
-        System.out.println("Thank you for banking with us!");
-    }
-
-    // Method to calculate monthly interest
-    public double calculateInterest() {
-        double interest = balance * interestRate / 12;
-        return interest;
-    }
+    public double bunga = 0.02;
+    public String nama;
+    public int balance;
+    public String name;
+    public double interestRate;
 
     public void cetak() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'cetak'");
+        System.out.println("Nama: " + nama);
+     System.out.println("Saldo: " + saldo);
+     System.out.println("Bunga: " + bunga);
+     System.out.println("Total Saldo dengan Bunga: " + (saldo + (saldo * bunga)));
+     System.out.println();
+ }
+    public void deposit(int x) {
+        saldo += x;
+        System.out.println("Deposit: " + x);
+        System.out.println("Saldo setelah deposit: " + saldo);
     }
+    public void withdraw() {
+
+
+       Scanner input = new Scanner(System.in);
+        System.out.print("Masukkan jumlah penarikan: ");
+        int jumlahPenarikan = input.nextInt();
+        if (jumlahPenarikan > saldo) {
+            System.out.println("Saldo tidak cukup untuk penarikan.");
+        }
+        if (jumlahPenarikan <= saldo) {
+            saldo -= jumlahPenarikan;
+            System.out.println("Penarikan: " + jumlahPenarikan);
+            System.out.println("Saldo setelah penarikan: " + saldo);
+        }
+        if (jumlahPenarikan < 0) {
+            System.out.println("Jumlah penarikan tidak boleh negatif.");
+        } 
+        if (jumlahPenarikan == 0) {
+            System.out.println("Tidak ada penarikan yang dilakukan.");
+        }
+
+
+     
+    }
+public double calkulateInterest() {
+    double bunga = saldo * this.bunga;
+    if (bunga < 0) {
+        System.out.println("Bunga tidak bisa.");
+
+    }
+    else {
+        System.out.println("Bunga yang didapat: " + bunga);
+        saldo -= bunga;
+        System.out.println("Saldo setelah pengurangan bunga bunga: " + saldo);
+    }
+    return bunga;
 }
+public void displayCustomer() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'displayCustomer'");
+}
+}  
