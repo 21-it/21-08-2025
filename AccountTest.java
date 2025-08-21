@@ -1,23 +1,26 @@
 public class AccountTest {
-    private static SavingAccount account2;
-
     public static void main(String[] args) {
+        CheckingAccount account1 = new CheckingAccount();
+        account1.nama = "Aldo";
+        account1.saldo = 1000.0;
+        account1.bunga = 0.02;
+        account1.cetak();
+        account1.deposit(15000);
+        account1.withdraw();
+        account1.calkulateInterest();
+
+
+CheckingAccount account2 = new CheckingAccount();
+      account2.nama = "andrew";
+        account2.saldo = 1000.0;
+        account2.bunga = 0.02;
+        account2.cetak();
+        account2.deposit(15000);
+        account2.withdraw();
+        account2.calkulateInterest();
+   
         
-        SavingAccount account1 = new SavingAccount();
-        account1.balance = 2000;
-        account1.balance += account1.calculateInterest();
-        account1.name  = "Hadi";
-        account1.interestRate = 0.02;
-        account1.displayCustomer();
+    
 
-        SavingAccount account2 = new SavingAccount();
-        account2.balance = 5000;
-        account2.balance += account2.calculateInterest();
-        account2.name  = "Dimas";
-        account2.interestRate = 0.02;
-        account2.displayCustomer();
-
-        double quotient = account2.balance / account1.balance;
-        System.out.println("Hasil dari saldo " + account2.name + " dibagi dengan saldo " + account1.name + " : " + quotient);
     }
 }
